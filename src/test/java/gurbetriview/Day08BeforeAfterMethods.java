@@ -1,4 +1,4 @@
-package com.techproed;
+package gurbetriview;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -12,12 +12,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class Day09Assertions {
-
+public class Day08BeforeAfterMethods {
+    /// Bir class oluşturun: BeforeAfterMethods
     //    // Ardından aşağıdaki adları kullanarak 3 test metodu oluşturun
-    //    // titleTest => Sayfa başlığının “Google” oldugunu assertion kullanarak doğrulayın
-    //    // imageTest => Google resminin görüntülenip görüntülenmediğini(isDisplayed()) assertion kullanarak doğrulayın
-    //    // gmailLinkTest => "Gmail" linkinin görüntülenip görüntülenmediğini (isDisplayed()) assertion kullanarak doğrulayın
+    //    // titleTest => Sayfa başlığının “Google” oldugunu doğrulayın
+    //    // imageTest => Google resminin görüntülenip görüntülenmediğini(isDisplayed()) doğrulayın
+    //    // gmailLinkTest => "Gmail" linkinin görüntülenip görüntülenmediğini (isDisplayed()) doğrulayın
     //    // Her testten sonra tarayıcıyı kapatin
     WebDriver driver;
 
@@ -40,16 +40,14 @@ public class Day09Assertions {
 
         String actualTitle = driver.getTitle();
         String expectedTitle = "Google";
-    //    if (actualTitle.equals(expectedTitle)) {
-      //      System.out.println("PASS");
-      //  } else {
-       //     System.out.println("FAIL");
-       // }
-        //Assert class'i JUnit ten gelir.
-        //assertEquals() iki tane sitringi alir ve birbirine esit olup olmadigini kontrol eder
+      /*  if (actualTitle.equals(expectedTitle)) {
+            System.out.println("PASS");
+        } else {
+            System.out.println("FAIL");
+        }
+    */
 
-        Assert.assertEquals(expectedTitle,actualTitle,"Yanlis yaptin");    //consolda birsey yok ama yanda yesil tik var.
-                                                          // eger FAIL olsaydi expected ve actual consolda yazilir.
+        Assert.assertEquals(actualTitle,expectedTitle);
 
     }
 
@@ -58,16 +56,14 @@ public class Day09Assertions {
 
 
         WebElement googleImage = driver.findElement(By.id("hplogo"));
-     /*   if (googleImage.isDisplayed()) {
+    /*    if (googleImage.isDisplayed()) {
             System.out.println("PASS");
         } else {
             System.out.println("FAIL");
         }
-       */
-        Assert.assertTrue(googleImage.isDisplayed());  //parantez ici true ise Test Pass olur, false ise Fail olur
-      //                                                  //assertTrue kullandigimizda neticenin True olmasini bekliyoruz
-      //  Assert.assertFalse(googleImage.isDisplayed());  //parantez ici false ise test Pass, true ise test Fail olur
-                                                          //assertFalse kullandigimizda neticenin False olmasini bekliyoruz
+    */
+        Assert.assertTrue(googleImage.isDisplayed());
+
     }
 
     @Test
@@ -81,8 +77,9 @@ public class Day09Assertions {
         } else {
             System.out.println("FAIL");
         }
-      */
+        */
         Assert.assertTrue(gmailLink.isDisplayed());
+
     }
 
     @After     //@After annotation'i genellikle  tarayiciyi kapatmak icin kullanilir.
@@ -90,4 +87,5 @@ public class Day09Assertions {
     public void tearDown() {
         driver.close();
     }
+
 }
